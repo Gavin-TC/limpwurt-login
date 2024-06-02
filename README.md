@@ -1,10 +1,8 @@
-# C Engineer: Completed [![Plugin Installs](https://img.shields.io/endpoint?url=https://i.pluginhub.info/shields/installs/plugin/c-engineer-completed)](https://runelite.net/plugin-hub/m0bile%20btw) [![Plugin Rank](https://img.shields.io/endpoint?url=https://i.pluginhub.info/shields/rank/plugin/c-engineer-completed)](https://runelite.net/plugin-hub)
+# Limpwurt Login
 
 ##### A plugin for [RuneLite](https://runelite.net/)
 
-C Engineer announces when you complete an achievement!
-
-Huge thanks to [C Engineer](https://www.youtube.com/channel/UCUNoAjAgVHEHc6jrUr4XuWQ) for providing custom recorded audio for this plugin!
+Limpwurt announces when you login!
 ___
 ## General Troubleshooting
 BEFORE TRYING ANYTHING ELSE, ENABLE THIS IN THE **RUNESCAPE** SETTINGS
