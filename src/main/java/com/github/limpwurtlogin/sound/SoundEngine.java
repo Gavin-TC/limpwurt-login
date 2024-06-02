@@ -73,7 +73,7 @@ public class SoundEngine {
 
         // User configurable volume
         FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-        float gain = 20f * (float) Math.log10(config.announcementVolume() / 100f);
+        float gain = 20f * (float) Math.log10(config.loginVolume() / 100f);
         gain = Math.min(gain, volume.getMaximum());
         gain = Math.max(gain, volume.getMinimum());
         volume.setValue(gain);

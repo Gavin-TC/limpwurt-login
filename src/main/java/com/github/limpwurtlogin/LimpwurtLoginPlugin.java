@@ -2,6 +2,7 @@ package com.github.limpwurtlogin;
 
 import com.github.limpwurtlogin.sound.Sound;
 import com.github.limpwurtlogin.sound.SoundEngine;
+import com.github.limpwurtlogin.sound.SoundFileManager;
 import com.google.inject.Provides;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -53,6 +54,8 @@ public class LimpwurtLoginPlugin extends Plugin {
     @Override
     protected void startUp() throws Exception {
         log.info("LimpwurtLogin has started");
+
+        executor.submit(() -> SoundFileManager.prepareSoundFiles(okHttpClient, true));
     }
 
     @Override

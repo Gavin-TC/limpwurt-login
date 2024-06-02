@@ -32,7 +32,7 @@ public class SoundFileManager {
     private static final String DELETE_WARNING_FILENAME = "_EXTRA_FILES_WILL_BE_DELETED_BUT_FOLDERS_WILL_REMAIN";
     private static final Path DELETE_WARNING_FILE = DOWNLOAD_DIR.resolve(DELETE_WARNING_FILENAME);
 
-    private static final HttpUrl RAW_GITHUB = HttpUrl.parse("https://raw.githubusercontent.com/m0bilebtw/c-engineer-completed/sounds");
+    private static final HttpUrl RAW_GITHUB = HttpUrl.parse("https://raw.githubusercontent.com/Gavin-TC/limpwurt-login/sounds");
 
     public static InputStream getSoundStream(Sound sound) throws FileNotFoundException {
         return new FileInputStream(DOWNLOAD_DIR.resolve(sound.getResourceName()).toFile());

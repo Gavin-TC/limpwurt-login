@@ -18,7 +18,7 @@ public interface LimpwurtLoginConfig extends Config {
             name = "Login volume",
             description = "Adjust how loud the audio announcement is played!"
     )
-    default int announcementVolume() {
+    default int loginVolume() {
         return 100;
     }
 }
