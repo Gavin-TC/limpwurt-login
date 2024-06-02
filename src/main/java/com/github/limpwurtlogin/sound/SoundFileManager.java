@@ -1,4 +1,4 @@
-package com.github.m0bilebtw.sound;
+package com.github.limpwurtlogin.sound;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.RuneLite;
@@ -28,7 +28,7 @@ import static java.util.function.Predicate.not;
 public class SoundFileManager {
     private SoundFileManager() {}
 
-    private static final Path DOWNLOAD_DIR = Path.of(RuneLite.RUNELITE_DIR.getPath(), "c-engineer-sounds");
+    private static final Path DOWNLOAD_DIR = Path.of(RuneLite.RUNELITE_DIR.getPath(), "limpwurt-login");
     private static final String DELETE_WARNING_FILENAME = "_EXTRA_FILES_WILL_BE_DELETED_BUT_FOLDERS_WILL_REMAIN";
     private static final Path DELETE_WARNING_FILE = DOWNLOAD_DIR.resolve(DELETE_WARNING_FILENAME);
 
@@ -82,7 +82,7 @@ public class SoundFileManager {
     private static void downloadFilename(OkHttpClient okHttpClient, String filename) {
         if (RAW_GITHUB == null) {
             // Hush intellij, it's okay, the potential NPE can't hurt you now
-            log.error("C Engineer Completed could not download sounds due to an unexpected null RAW_GITHUB value");
+            log.error("Limpwurt Login could not download sounds due to an unexpected null RAW_GITHUB value");
             return;
         }
         HttpUrl soundUrl = RAW_GITHUB.newBuilder().addPathSegment(filename).build();
@@ -91,7 +91,7 @@ public class SoundFileManager {
             if (res.body() != null)
                 Files.copy(new BufferedInputStream(res.body().byteStream()), DOWNLOAD_DIR.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            log.error("C Engineer Completed could not download sounds", e);
+            log.error("Limpwurt Login could not download sounds", e);
         }
     }
 
@@ -119,6 +119,6 @@ public class SoundFileManager {
 
     private static Stream<Sound> getDesiredSounds(boolean includeStreamerTrolls) {
         return Arrays.stream(Sound.values())
-                .filter(sound -> includeStreamerTrolls || !sound.isStreamerTroll());
+                .filter(sound -> includeStreamerTrolls);
     }
 }

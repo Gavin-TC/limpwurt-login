@@ -1,13 +1,13 @@
-package com.github.m0bilebtw;
+package com.github.limpwurtlogin;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class CEngineerCompletedPluginTest
+public class LimpwurtLoginPluginTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(CEngineerCompletedPlugin.class);
+		ExternalPluginManager.loadBuiltin(LimpwurtLoginPlugin.class);
 		RuneLite.main(args);
 	}
 }

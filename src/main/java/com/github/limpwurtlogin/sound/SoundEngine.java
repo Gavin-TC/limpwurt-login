@@ -1,6 +1,6 @@
-package com.github.m0bilebtw.sound;
+package com.github.limpwurtlogin.sound;
 
-import com.github.m0bilebtw.CEngineerCompletedConfig;
+import com.github.limpwurtlogin.LimpwurtLoginConfig;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class SoundEngine {
 
     @Inject
-    private CEngineerCompletedConfig config;
+    private LimpwurtLoginConfig config;
 
     private static final long CLIP_MTIME_UNLOADED = -2;
 
@@ -37,7 +37,7 @@ public class SoundEngine {
             clip.open(audioInputStream); // liable to error with pulseaudio, works on windows, one user informs me mac works
             return true;
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            log.warn("Failed to load C Engineer sound " + sound, e);
+            log.warn("Failed to load Limpwurt Login sound " + sound, e);
         }
         return false;
     }
@@ -61,7 +61,7 @@ public class SoundEngine {
                 clip = AudioSystem.getClip();
             } catch (LineUnavailableException e) {
                 lastClipMTime = CLIP_MTIME_UNLOADED;
-                log.warn("Failed to get clip for C Engineer sound " + sound, e);
+                log.warn("Failed to get clip for Limpwurt Login sound " + sound, e);
                 return;
             }
 
