@@ -4,13 +4,8 @@
 
 Limpwurt announces when you login!
 ___
-## General Troubleshooting
-BEFORE TRYING ANYTHING ELSE, ENABLE THIS IN THE **RUNESCAPE** SETTINGS
 
-![image](https://user-images.githubusercontent.com/62370532/208992085-e2c07494-d8bb-489e-b7f3-ed538175acbc.png)
-___
-
-## Customising your sounds
+## Customising your sound
 
 ### 1. Locate your `.runelite` folder
 
