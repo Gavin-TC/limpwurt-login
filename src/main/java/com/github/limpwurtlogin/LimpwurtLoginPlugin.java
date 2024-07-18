@@ -66,7 +66,6 @@ public class LimpwurtLoginPlugin extends Plugin {
 
     @Subscribe
     public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        System.out.println("Game state changed: " + gameStateChanged.getGameState());
         if (gameStateChanged.getGameState() == GameState.LOGGING_IN) {
             soundEngine.playClip(Sound.LOGGED_IN, executor);
         }
