@@ -16,7 +16,7 @@ public interface LimpwurtLoginConfig extends Config {
     @ConfigItem(
             keyName = "loginVolume",
             name = "Login volume",
-            description = "Adjust how loud the audio announcement is played!"
+            description = "Adjust how loud the audio announcement is played"
     )
     default int loginVolume() {
         return 100;
