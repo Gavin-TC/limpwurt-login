@@ -10,6 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.MenuOptionClicked;
+import net.runelite.api.events.WidgetClosed;
+import net.runelite.api.events.WidgetLoaded;
+import net.runelite.api.widgets.WidgetID;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.EventBus;
@@ -51,9 +55,13 @@ public class LimpwurtLoginPlugin extends Plugin {
     @Inject
     private SoundEngine soundEngine;
 
+    private boolean hasLoggedIn = false;
+
     @Override
     protected void startUp() throws Exception {
         log.info("LimpwurtLogin has started");
+
+        hasLoggedIn = false;
 
         executor.submit(() -> SoundFileManager.prepareSoundFiles(okHttpClient, true));
     }
@@ -65,9 +73,19 @@ public class LimpwurtLoginPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        if (gameStateChanged.getGameState() == GameState.LOGGING_IN) {
+    public void onWidgetClosed(WidgetClosed widgetClosed) {
+        if (widgetClosed.getGroupId() == WidgetID.LOGIN_CLICK_TO_PLAY_GROUP_ID && !hasLoggedIn) {
+            hasLoggedIn = true; // Just in case
             soundEngine.playClip(Sound.LOGGED_IN, executor);
+        }
+    }
+
+    @Subscribe
+    public void onGameStateChanged(GameStateChanged gameStateChanged) {
+        switch (gameStateChanged.getGameState()) {
+            case LOGIN_SCREEN:
+                hasLoggedIn = false;
+                break;
         }
     }
 
